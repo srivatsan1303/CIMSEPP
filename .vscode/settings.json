@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "s29oj5odr85rij2o.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+            "port": 3306,
+            "driver": "MySQL",
+            "username": "k225n6zbzfn3wxic",
+            "password": "w10nopv24cwx05rm",
+            "database": "saun0csbkaf45xyz",
+            "name": "PathFinder AI"
+        }
+    ]
+}

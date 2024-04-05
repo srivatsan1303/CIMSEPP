@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAE -CIMSEPP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="/static/nsf.jpg" alt="Logo">
+        <h1 class="title">CIMSEPP</h1>
+        <form class="logout-form" action="/logout" method="post">
+            <input type="submit" value="Logout" class="logout-button">
+        </form>        
+    </div>
+
+    <form id="dataFormVAE">
+        <label for="api">API:</label>
+        <select id="api" name="api">
+            <option value="1">cAPAP</option>
+            <option value="2">Fenofibrate</option>
+            <option value="3">GF</option>
+            <option value="4">IBU25</option>
+            <option value="5">IBU38</option>
+            <option value="6">IBU50</option>
+            <option value="7">IBU70</option>
+            <option value="8">Itraconazole</option>
+            <option value="9">mAPAP</option>
+            <option value="10">NAN</option>
+        </select><br><br>
+
+        <label for="excipient">Excipient:</label>
+        <select id="excipient" name="excipient">
+            <option value="111">NAN</option>
+            <option value="222">AVICEL101</option>
+            <option value="333">AVICEL102</option>
+            <option value="444">AVICEL105</option>
+            <option value="555">AVICEL200</option>
+            <option value="666">Cornstarch</option>
+            <option value="777">Granulac 200</option>
+            <option value="888">Granulac 230</option>
+            <option value="999">INHALAC400</option>
+            <option value="1111">INHALAC500</option>
+            <option value="2222">Lactohale 220</option>
+            <option value="3333">Lactohale 230</option>
+            <option value="4444">Lactose 120</option>
+            <option value="5555">Lectochem Microfine</option>
+            <option value="6666">Lectochem Regular</option>
+            <option value="7777">PHAR350</option>
+            <option value="8888">PHAR450</option>
+            <option value="9999">Pharmatose DCL11</option>
+            <option value="11111">SORB400</option>
+        </select><br><br>
+        
+        <label for="api_percent">API Percent (0-100):</label>
+        <input type="number" id="api_percent" name="api_percent" min="0" max="100">
+        
+        <input type="checkbox" id="api_coated" name="api_coated" checked>
+        <label for="api_coated">API Coated</label><br><br>
+
+        <label for="api_coat_percent">API Coat Percent (0-100):</label>
+        <input type="number" id="api_coat_percent" name="api_coat_percent" min="0" max="100">
+
+        <input type="checkbox" id="exc_coated" name="exc_coated" checked>
+        <label for="exc_coated">Excipient Coated</label><br><br>
+
+        <label for="exc_coat_percent">Excipient Coat Percent (0-100):</label>
+        <input type="number" id="exc_coat_percent" name="exc_coat_percent" min="0" max="100">
+
+        <label for="api_silica_type">API Silica Type:</label>
+        <select id="api_silica_type" name="api_silica_type">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select><br><br>
+
+        <label for="exc_silica_type">Excipient Silica Type:</label>
+        <select id="exc_silica_type" name="exc_silica_type">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select><br><br>
+
+    
+        <input type="submit" value="Submit">
+    </form>
+    
+    <div class="prediction">
+        <div class="prediction-item">
+            <span class="prediction-label">Predicted FF Regime:</span>
+            <span id="predictedFFRegime" class="prediction-value"></span>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 NJIT CIMSEPP. All rights reserved. Visit <a href="https://people.njit.edu/faculty/jyoung" target="_blank">jyoung</a> to get in touch!</p>
+    </footer>
+
+    <script src="/static/js/javascript.js"></script>
+</body>
+</html>

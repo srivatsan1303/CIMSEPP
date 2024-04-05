@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CIMSEPP Data Modelling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="/static/nsf.jpg" alt="Logo">
+        <h1 class="title">CIMSEPP</h1>
+        <form class="logout-form" action="/logout" method="post">
+            <input type="submit" value="Logout" class="logout-button">
+        </form>        
+    </div>
+<div class="model-container">
+    <div id="container1" class="dash-container" onclick="navigateTo('RF');">
+        <div class="dash-text">Random Forest Regressor</div>
+    </div>    
+    <div id="container2" class="dash-container" onclick="navigateTo('VAE');">
+        <div class="dash-text">Baseline Variational Autoencoders</div>
+    </div>
+</div>
+</div>
+</body>
+<body>
+    <footer>
+        <p>© 2024 NJIT CIMSEPP. All rights reserved. Visit <a href="https://people.njit.edu/faculty/jyoung" target="_blank">jyoung</a> to get in touch!</p>
+    </footer>
+    <script src="/static/js/javascript.js"></script>
+</body>
+</html>

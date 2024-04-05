@@ -1,0 +1,473 @@
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f5 url('https://img.freepik.com/free-photo/top-view-medical-desk-composition-with-copy-space_23-2148502942.jpg') center/cover no-repeat fixed;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Cursor Glow Animation */
+.cursor-glow {
+    pointer-events: none;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #1abc9c;
+    box-shadow: 0 0 10px 5px #1abc9c, 0 0 20px 10px #16a085;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s, transform 0.2s;
+    opacity: 0;
+    z-index: 1000;
+}
+
+/* Logout Button */
+.logout-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px; /* Set the right margin to 0 */
+    margin-left: auto; /* Added to push the form to the right */
+}
+
+
+.logout-button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    border: 2px dotted #2881a2;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+
+/* Login form styles */
+.login-container {
+    margin-top: 210px;
+    height: 380px;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 60%;
+    height: 80% !important;
+    max-width: 600px;
+    margin: auto;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form input[type="submit"] {
+    width: 100%;
+    height: 23%;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+.login-form input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    align-items: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    padding: 10px 0; /* Changed from 10px 20px to 10px 0 to remove right padding */
+}
+
+.logo {
+    height: 60px;
+    margin-left: 15px;
+    justify-content: space-between;
+}
+
+.title {
+    margin: 0;
+    font-size: 40px;
+    color:#333;
+    margin-left: 40%;
+}
+
+/* Dash container styles */
+.dash-container {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    display: inline-block;
+    cursor: pointer;
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.dash-container:hover {
+    transform: scale(1.05);
+}
+
+/* Table and prediction result styling */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Footer styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Additional Adjustments */
+.body {
+    margin-bottom: 60px;
+}
+
+/* Background color for containers */
+#container1 {
+    background-color: #3d0f04; /* Example color 1 */
+    margin-top: 10%;
+}
+
+#container2 {
+    background-color: #012f0a; /* Example color 2 */
+}
+
+#container3 {
+    background-color: #0f0538; /* Example color 3 */
+}
+
+#container4 {
+    background-color: #3c4b05; /* Example color 4 */
+}
+
+/* Adjust styling for two items in a row */
+.dash-container {
+    position: relative;
+    width: calc(40% - 20px); /* 50% width with a small margin */
+    height: 250px;
+    background-size: cover;
+    display: inline-block;
+    cursor: pointer;
+    margin: 20px 10px 10px; /* Adjust top margin as needed */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Maintain the hover effect */
+.dash-container:hover {
+    transform: scale(1.05);
+}
+
+/* Text styling */
+.dash-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Form styles */
+#dataForm {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 6%;
+}
+
+#dataForm label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+#dataForm select,
+#dataForm input[type="range"],
+#dataForm input[type="checkbox"],
+#dataForm input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    position: relative;
+}
+
+
+#dataForm input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dataForm input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Form styles */
+#dataFormRF {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 6%;
+}
+
+#dataFormRF label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+#dataFormRF select,
+#dataFormRF input[type="range"],
+#dataFormRF input[type="number"],
+#dataFormRF input[type="checkbox"],
+#dataFormRF input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    position: relative;
+}
+
+
+#dataFormRF input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dataFormRF input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Form styles */
+#dataFormVAE {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 6%;
+}
+
+#dataFormVAE label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+#dataFormVAE select,
+#dataFormVAE input[type="range"],
+#dataFormVAE input[type="number"],
+#dataFormVAE input[type="checkbox"],
+#dataFormVAE input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    position: relative;
+}
+
+
+#dataFormVAE input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dataFormVAE input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Enhanced Prediction styles */
+.prediction {
+    display: flex;
+    justify-content: center; /* Changed to space-around for even spacing */
+    align-items: center;
+    font-weight: bold;
+    font-size: 2em; /* Retained the increased font size for emphasis */
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #2980b9; /* More solid and less bright blue for a professional look */
+    color: #fff;
+    border-radius: 12px; /* Retained the smooth border-radius */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Increased box shadow for more depth */
+    transition: box-shadow 0.3s ease; /* Transition for shadow instead of color */
+}
+
+.prediction div {
+    padding: 14px 28px; /* Retained the increased padding */
+    border-radius: 10px; /* Retained the rounded corners */
+    background-color: #fff; /* Solid white background for text */
+    color: #2980b9; /* The color of the container used for text for consistency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for text backgrounds */
+    margin: 0 12px;
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+.prediction-timestamp {
+    display: block; /* Adjust based on your layout preference */
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.prediction div:hover {
+    transform: scale(1.05); /* Slightly scale up the div on hover */
+    background-color: #3498db; /* Lighter blue background on hover for the text */
+    color: #fff; /* White text on hover */
+}
+
+/* Assuming your values are within these classes, update accordingly */
+.results-container table td {
+    background-color: #fff; /* Set the background color to white */
+    color: #333; /* Set the text color to something darker for contrast */
+    padding: 5px 10px; /* Add some padding */
+    border-radius: 4px; /* Optional: adds rounded corners to the cells */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for depth */
+    margin: 2px; /* Optional: adds a bit of space between cells */
+}
+
+.results-container table {
+    /* If the table has a background color, set it to transparent or white */
+    background-color: transparent;
+}
+
+.results-container table th {
+    /* If the table headers have a background color, you can set them to a light color or white */
+    background-color: #3498db; /* Light grey, for example, or you can use white */
+    color: #333; /* Set the text color for headers to dark for contrast */
+}
+
+/* Additions to existing CSS for the input range */
+input[type="range"] {
+    -webkit-appearance: none; /* Override default appearance */
+    -moz-appearance: none;    /* Firefox */
+    appearance: none;         /* Standard syntax */
+    
+    width: 100%; /* Specific width is required for 'background' property to work */
+    margin: 18px 0;
+
+    /* Style the slider track */
+    &::-webkit-slider-runnable-track {
+        height: 8px;
+        background: #ddd;
+        border-radius: 10px;
+    }
+
+    /* Style the slider handle (thumb) */
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #4CAF50; /* Slider handle color */
+        cursor: pointer; /* Cursor on hover */
+        border-radius: 50%; /* Circle slider handle */
+        margin-top: -9px; /* Align handle with track */
+    }
+
+    &::-moz-range-thumb {
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #4CAF50; /* Slider handle color */
+        cursor: pointer; /* Cursor on hover */
+        border-radius: 50%; /* Circle slider handle */
+    }
+}
+
+
+  /* New styles for the range labels */
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -42px;
+    margin-bottom: 42px;
+    width: 90%;
+    margin-left: 6%;
+}
+
+.slider-labels span {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+}
+
+
