@@ -38,5 +38,5 @@ VAE Model: Provides an interface for generating new data samples based on input 
 RF Model: Offers prediction capabilities, classifying input data based on trained patterns.
 Detailed usage instructions and options for interacting with these models will be provided within the web application's interface.
 
-3# Development
+## Development
 Details about extending the application, such as adding new models or enhancing the UI, should be documented here for developers.
