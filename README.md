@@ -34,9 +34,12 @@ Upon running, the script will initialize a local server (typically Flask for Pyt
 Access the web application by navigating to http://localhost:5000 (or the port specified by your main.py script) in your web browser.
 
 ## Interacting with the Models
+
 VAE Model: Provides an interface for generating new data samples based on input parameters.
+
 RF Model: Offers prediction capabilities, classifying input data based on trained patterns.
+
 Detailed usage instructions and options for interacting with these models will be provided within the web application's interface.
 
-3# Development
+## Development
 Details about extending the application, such as adding new models or enhancing the UI, should be documented here for developers.
