@@ -10,6 +10,8 @@ from decimal import Decimal, ROUND_HALF_UP
 from sklearn.metrics import mean_squared_error
 from flask import Flask, render_template, request, redirect
 import database
+from collections import Counter
+from scipy.stats import mode
 import os
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
@@ -391,30 +393,48 @@ def predictVAE():
     print("##### Debug Completed #####")
 
 
+    def get_ff_regime_label(ff_regime_value):
+        if ff_regime_value < 2:
+            return "Cohesive"
+        elif 2 <= ff_regime_value < 4:
+            return "Cohesive"
+        elif 4 <= ff_regime_value < 6:
+            return "Easy-Flowing"
+        elif 6 <= ff_regime_value < 10:
+            return "Easy-Flowing"
+        elif ff_regime_value >= 10:
+            return "Free-Flowing"
+        else:
+            ff_regime_label = "Unknown" # You can decide how to handle out-of-range values
+    
+    # Initialize a list to collect ff_regime_labels
+    ff_regime_labels = []
+
     #make predictions
-    new_combination_scaled = scaler_X.fit_transform(new_combinations)
-    new_combination_tensor = tf.convert_to_tensor(new_combination_scaled, dtype=tf.float32)
-    predictions = vae1.predict(new_combination_tensor)
-    reconstructed_features = predictions[0]
-    ff_predictions = reconstructed_features[:, 7:]
-    ff_regime_value = ff_predictions
-    print(ff_regime_value)
+    for _ in range(20):
+        new_combination_scaled = scaler_X.fit_transform(new_combinations)
+        new_combination_tensor = tf.convert_to_tensor(new_combination_scaled, dtype=tf.float32)
+        predictions = vae1.predict(new_combination_tensor)
+        reconstructed_features = predictions[0]
+        ff_predictions = reconstructed_features[:, 7:]
+        if hasattr(ff_predictions, 'numpy'):
+            ff_regime_value = ff_predictions.numpy().flatten()[0]
+        else:
+            ff_regime_value = ff_predictions.flatten()[0]
+        # Map the ff_regime_value to its corresponding label
+        ff_regime_label = get_ff_regime_label(ff_regime_value)
+        ff_regime_labels.append(ff_regime_label)
+    
+    print(ff_regime_labels)
+    label_counter = Counter(ff_regime_labels)
+    # Find the most common label
+    most_common_label, occurrences = label_counter.most_common(1)[0]
 
+    try:
+        print(f"The most common label is '{most_common_label}' with {occurrences} occurrences.")
+    except Exception as e:
+        print("An error occurred:", e)
 
-
-    # Map the ff_regime_value to the corresponding range and label
-    if ff_regime_value < 2:
-        ff_regime_label = "Cohesive"
-    elif 2 <= ff_regime_value < 4:
-        ff_regime_label = "Cohesive"
-    elif 4 <= ff_regime_value < 6:
-        ff_regime_label = "Easy-Flowing"
-    elif 6 <= ff_regime_value < 10:
-        ff_regime_label = "Easy-Flowing"
-    elif ff_regime_value >= 10:
-        ff_regime_label = "Free-Flowing"
-    else:
-        ff_regime_label = "Unknown"  # You can decide how to handle out-of-range values
 
     # Return the result along with all the additional features
     return jsonify({
@@ -440,7 +460,7 @@ def predictVAE():
         "exc Sphericity(-)": excipient_features.get('exc Sphericity(-)', None),
         "exc Elongation(-)": excipient_features.get('exc Elongation(-)', None),
         "predicted_ff": float(ff_regime_value),
-        "predicted_ff_regime": ff_regime_label
+        "predicted_ff_regime": most_common_label
     })
 
 @app.route('/logout', methods=['POST'])
